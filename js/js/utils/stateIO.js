@@ -1,10 +1,7 @@
 export const loadState = () => {
     try {
         const serializedState = localStorage.getItem('state');
-        if (serializedState === null) {
-            return {contacts: []};
-        }
-        return JSON.parse(serializedState);
+        return serializedState === null ? {contacts: []} : JSON.parse(serializedState);
     } catch (e) {
         return undefined;
     }
